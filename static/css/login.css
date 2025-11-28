@@ -1,0 +1,14 @@
+.slick-dots {
+    display: none !important;
+}
+
+.fondos {
+    position: fixed !important;
+    width: 100%;
+}
+
+@media screen and (max-width:400px) {
+    img.slick-slide  {
+        zoom: 4.5;
+    }
+}

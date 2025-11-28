@@ -1,0 +1,16 @@
+@media screen and (max-width: 400px) {
+
+    div.menumovil {
+        display: flex;
+        flex-wrap: initial;
+        flex: initial;
+        overflow: scroll;
+        padding: 0 2% !important;
+        justify-content: initial;
+    }
+
+    div.columna {
+        width: 44%;
+        padding: 0 1%;
+    }
+}
