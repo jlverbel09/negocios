@@ -18,7 +18,7 @@ if (empty($_SESSION['usuario'])) {
 	<meta name="author" content="GeorkingWeb">
 	<meta name="keywords" content="web, business">
 
-	<link rel="shortcut icon" href="img/icons/icono.png" />
+	<link rel="shortcut icon" href="img/icons/iconosolo.png" />
 
 	<!-- <link rel="canonical" href="https://demo-basic.adminkit.io/" /> -->
 

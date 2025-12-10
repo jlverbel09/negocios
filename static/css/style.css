@@ -11,12 +11,16 @@ a {
 main.content {
     padding: 1rem 1rem 1.5rem;
 }
-
+.color-blue{
+    background-color: #274a68
+}
 .scrollproductos {
     overflow-y: scroll;
     height: 60vh;
 }
-
+.card {
+        border: 1px solid #274a68;
+}
 body {
     scrollbar-width: thin;
     scrollbar-color: #222e3c #181a1b;

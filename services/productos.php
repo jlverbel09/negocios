@@ -19,6 +19,8 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'listarProductos') {
             <table class="table d-lg-table  d-block table-responsive  my-0">
                 <thead>
                     <tr>
+                        <!-- <th>Vista&nbsp;Previa</th> -->
+                        <th colspan="3">Acciones</th>
                         <th>ID</th>
                         <th>Nombre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                         <th>Precio</th>
@@ -26,8 +28,6 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'listarProductos') {
                         <th>Categoria</th>
                         <th>Descripcion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                         <th>Fecha&nbsp;Registro</th>
-                        <th>Vista&nbsp;Previa</th>
-                        <th colspan="2">Acciones</th>
                     </tr>
                 </thead>
                 <tbody class="">
@@ -36,13 +36,6 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'listarProductos') {
                     <?php endif ?>
                     <?php foreach ($response as $r): ?>
                         <tr>
-                            <td><?= $r['id'] ?></td>
-                            <td><?= $r['nombre'] ?></td>
-                            <td>€&nbsp;<?= number_format($r['precio'], 2, ',', '.'); ?></td>
-                            <td>€&nbsp;<?= number_format($r['promocion'], 2, ',', '.'); ?></td>
-                            <td><?= $r['categoria'] ?></td>
-                            <td><?= $r['descripcion'] ?></td>
-                            <td><?= $r['fecha_reg'] ?></td>
                             <td class="text-center" role="button" onclick="visualizar(<?= $r['id'] ?>)">
                                 <i class="fa fa-eye"></i>
                             </td>
@@ -52,6 +45,13 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'listarProductos') {
                             <td class="text-center" role="button" onclick="eliminarProducto(<?= $r['id'] ?>)">
                                 <i class="fa fa-trash"></i>
                             </td>
+                            <td><?= $r['id'] ?></td>
+                            <td><?= $r['nombre'] ?></td>
+                            <td>€&nbsp;<?= number_format($r['precio'], 2, ',', '.'); ?></td>
+                            <td>€&nbsp;<?= number_format($r['promocion'], 2, ',', '.'); ?></td>
+                            <td><?= $r['categoria'] ?></td>
+                            <td><?= $r['descripcion'] ?></td>
+                            <td><?= $r['fecha_reg'] ?></td>
                         </tr>
                     <?php endforeach ?>
 
