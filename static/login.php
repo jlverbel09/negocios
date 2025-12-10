@@ -39,10 +39,12 @@ if(!empty($_SESSION['usuario'])){
 			style="display: none;">
 	</div>
 	<div class="fondos">
-		<img src="../static/img/photos/login/4.jpg" alt="">
+		<img src="../static/img/photos/login/6.jpg" alt="">
+		<img src="../static/img/photos/login/5.jpg" alt="">
 		<img src="../static/img/photos/login/1.jpg" alt="">
 		<img src="../static/img/photos/login/2.avif" alt="">
 		<img src="../static/img/photos/login/3.jpg" alt="">
+		<img src="../static/img/photos/login/4.jpg" alt="">
 	</div>
 
 
@@ -73,12 +75,12 @@ if(!empty($_SESSION['usuario'])){
 											<label class="form-label">Contraseña</label>
 											<input class="form-control form-control-lg" type="password" name="password" id="password" placeholder="Ingresa tu contraseña" />
 										</div>
-										<div>
+									<!-- 	<div>
 											<div class="form-check align-items-center">
 												<input id="customControlInline" type="checkbox" class="form-check-input" value="remember-me" name="remember-me" checked>
 												<label class="form-check-label text-small" for="customControlInline">Recordarme</label>
 											</div>
-										</div>
+										</div> -->
 										<div class="d-grid gap-2 mt-3">
 											<a onClick="ingresar()" class="btn btn-lg btn-primary">Iniciar Sesión</a>
 										</div>

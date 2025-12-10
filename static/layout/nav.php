@@ -1,6 +1,6 @@
 <nav id="sidebar" class="sidebar js-sidebar">
     <div class="sidebar-content js-simplebar">
-        <a class="sidebar-brand pb-0 text-center text-decoration-none" href="index.html">
+        <a class="sidebar-brand pb-0 text-center text-decoration-none" href="index.php">
             <img class="logo w-50 rounded" src="./img/icons/icono.png" alt="">
             <span class="align-middle">Georking&nbsp;Business</span>
         </a>
