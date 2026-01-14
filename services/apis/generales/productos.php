@@ -5,7 +5,7 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 
 if (isset($_GET['accion']) && $_GET['accion'] == 'listProductos') {
-    $query = "SELECT * from producto where id_negocio = " . $_GET['id_negocio'];
+    $query = "SELECT * from producto where id_negocio = " . $_GET['id_negocio'] . " and estado = 'A'";
     $data = $conexion->query($query)->fetchAll();
 }
 
