@@ -2,7 +2,7 @@
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand pb-0 text-center text-decoration-none" href="index.php">
             <img class="logo w-75 rounded p-1" src="./img/icons/icono.png" alt="">
-           <!--  <span class="align-middle">Georking&nbsp;Business</span> -->
+           
         </a>
         <br>
 
@@ -38,7 +38,7 @@
             <?php
 
 
-            $query = "select * from negocio where estado = 'A' ";
+            $query = "select * from negocio where estado = 'A' order by id desc";
             $response = $conexion->query($query)->fetchAll();
 
             foreach ($response as $negocio) {
@@ -144,6 +144,7 @@
         <a class="sidebar-toggle js-sidebar-toggle text-">
             <i class="hamburger align-self-center "></i>
         </a>
+         <span class="align-middle">GEORKING&nbsp;BUSINESS</span>
 
         <div class="navbar-collapse collapse">
             <ul class="navbar-nav navbar-align">

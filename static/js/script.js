@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    redireccion('dashboard')
+    //redireccion('dashboard')
     //redireccion('usuarios')
-    //redireccion('negocio', { 'negocio': 'MI COTITA', 'id': 1 })
+    redireccion('negocio', { 'negocio': 'NAZCA', 'id': 7 })
 
 })
 /* REDIRECCIONAMIENTO DE RUTAS  */

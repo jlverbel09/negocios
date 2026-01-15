@@ -40,14 +40,9 @@ if (isset($_GET['id'])) {
         <div class="columna">
             <div class="card text-center menu bg-secondary " role="button" onclick="cargarNegocio(<?= $_GET['id'] ?>)" data-bs-toggle="modal" data-bs-target="#modalNegocio">
                 <div class="card-body">
-                    <div class="row justify-content-center">
-                        <div class="col-auto">
-                            <div class="stat text-primary">
-                                <img class="logo" src="../static/logos/<?= $_GET['id'] ?>.png" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <h6 class="mt-1 mb-1 ">Negocio</h1>
+                    <img class="w-50" src="../static/logos/<?= $_GET['id'] ?>.png" alt="">
+                   
+                    <!-- <h6 class="mt-1 mb-1 ">Negocio</h1> -->
                 </div>
             </div>
         </div>
