@@ -8,6 +8,13 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'detalleNegocio') {
     $data = $conexion->query($query)->fetchAll();
 }
 
+if (isset($_GET['accion']) && $_GET['accion'] == 'visitasNegocio') {
+
+    $query = "UPDATE negocio SET visitas = visitas + 1 WHERE id = " . $_GET['id_negocio'];
+    $data = $conexion->query($query)->fetchAll();
+}
+
+
 $jsonProductos = json_encode($data, JSON_PRETTY_PRINT);
 header('Content-Type: application/json');
 echo $jsonProductos;
