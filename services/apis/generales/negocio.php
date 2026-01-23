@@ -15,6 +15,11 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'visitasNegocio') {
     $query = "UPDATE negocio SET visitas = visitas + 1 WHERE id = " . $_GET['id_negocio'];
     $data = $conexion->query($query)->fetchAll();
 }
+if (isset($_GET['accion']) && $_GET['accion'] == 'reservasNegocio') {
+
+    $query = "UPDATE negocio SET reservas = reservas + 1 WHERE id = " . $_GET['id_negocio'];
+    $data = $conexion->query($query)->fetchAll();
+}
 
 
 $jsonProductos = json_encode($data, JSON_PRETTY_PRINT);
