@@ -2,32 +2,25 @@
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand pb-0 text-center text-decoration-none" href="index.php">
             <img class="logo w-75 rounded p-1" src="./img/icons/icono.png" alt="">
-           
         </a>
         <br>
-
-
-
         <ul class="sidebar-nav justify-content-start flex-grow-0">
             <!-- <li class="sidebar-header">
                 Pages
             </li> -->
-
-            <li class="sidebar-item" id="dashboardMenu">
-                <a class="sidebar-link" onclick="redireccion('dashboard')">
-                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard </span>
-                </a>
-            </li>
-            <li class="sidebar-item" id="usuariosMenu">
-                <a class="sidebar-link" onclick="redireccion('usuarios')">
-                    <i class="align-middle" data-feather="users"></i> <span class="align-middle">Usuarios</span>
-                </a>
-            </li>
-
-
+            <?php if (in_array(1, $permisos)) { ?>
+                <li class="sidebar-item" id="dashboardMenu">
+                    <a class="sidebar-link" onclick="redireccion('dashboard')">
+                        <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard </span>
+                    </a>
+                </li>
+                <li class="sidebar-item" id="usuariosMenu">
+                    <a class="sidebar-link" onclick="redireccion('usuarios')">
+                        <i class="align-middle" data-feather="users"></i> <span class="align-middle">Usuarios</span>
+                    </a>
+                </li>
+            <?php } ?>
         </ul>
-
-
 
 
         <ul class="sidebar-nav flex-grow-0">
@@ -36,23 +29,21 @@
             </li>
 
             <?php
-
-
             $query = "select * from negocio where estado = 'A' order by id desc";
             $response = $conexion->query($query)->fetchAll();
 
             foreach ($response as $negocio) {
+                if (in_array($negocio['id'], $permisosNegocio)) {
             ?>
-                <li class="sidebar-item" id="negocioMenu<?=$negocio['id']?>">
-                    <a class="sidebar-link" onclick="redireccion(`negocio`, {'negocio':'<?=$negocio['nombre']?>', 'id': <?=$negocio['id']?>})">
-                        <i class="align-middle fa fa-store"></i> <span class="align-middle"><?=$negocio['nombre']?></span>
-                    </a>
-                </li>
+                    <li class="sidebar-item" id="negocioMenu<?= $negocio['id'] ?>">
+                        <a class="sidebar-link" onclick="redireccion(`negocio`, {'negocio':'<?= $negocio['nombre'] ?>', 'id': <?= $negocio['id'] ?>})">
+                            <i class="align-middle fa fa-store"></i> <span class="align-middle"><?= $negocio['nombre'] ?></span>
+                        </a>
+                    </li>
             <?php
-
+                }
             }
             ?>
-
         </ul>
 
 
@@ -144,7 +135,7 @@
         <a class="sidebar-toggle js-sidebar-toggle text-">
             <i class="hamburger align-self-center "></i>
         </a>
-         <span class="align-middle">GEORKING&nbsp;BUSINESS</span>
+        <span class="align-middle">GEORKING&nbsp;BUSINESS</span>
 
         <div class="navbar-collapse collapse">
             <ul class="navbar-nav navbar-align">

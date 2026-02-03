@@ -5,7 +5,7 @@ require_once('../db/conexion.php');
 if (isset($_GET['accion']) && $_GET['accion'] == 'listarProductos') {
     /* LISTAR PRODUCTOS */
     include './modales.php';
-    $query = "SELECT * from producto where id_negocio = " . $_GET['idnegocio'] . " order by id desc";
+    $query = "SELECT * from producto where estado = 'A' and id_negocio = " . $_GET['idnegocio'] . " order by nombre, id desc";
     $response = $conexion->query($query)->fetchAll(); ?>
     <div class="col-12">
         <input type="hidden" value="<?= $_GET['idnegocio'] ?>" id="idNegocio">
@@ -26,6 +26,7 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'listarProductos') {
                         <th>Precio</th>
                         <th>Promocion</th>
                         <th>Categoria</th>
+                        <!-- <th>Estado</th> -->
                         <th>Descripcion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                         <th>Fecha&nbsp;Registro</th>
                     </tr>
@@ -36,7 +37,7 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'listarProductos') {
                     <?php endif ?>
                     <?php foreach ($response as $r): ?>
                         <tr>
-                            <td class="text-center" role="button" onclick="visualizar(<?= $r['id'] ?>)">
+                            <td class="text-center" role="button" onclick="visualizar(<?= $r['id'] ?>);desplazarVistaPreviaProducto();">
                                 <i class="fa fa-eye"></i>
                             </td>
                             <td class="text-center" role="button" data-bs-toggle="modal" data-bs-target="#modalProducto" onclick="cargarModalProducto(<?= $r['id'] ?>)">
@@ -50,6 +51,7 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'listarProductos') {
                             <td>€&nbsp;<?= number_format($r['precio'], 2, ',', '.'); ?></td>
                             <td>€&nbsp;<?= number_format($r['promocion'], 2, ',', '.'); ?></td>
                             <td><?= $r['categoria'] ?></td>
+                            <!-- <td class="text-center"><?= $r['estado'] ?></td> -->
                             <td><?= $r['descripcion'] ?></td>
                             <td><?= $r['fecha_reg'] ?></td>
                         </tr>
@@ -127,7 +129,7 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'cargarModalProducto') {
 
 
 if (isset($_GET['accion']) && $_GET['accion'] == 'eliminarProducto') {
-    $query = "DELETE FROM producto where id = " . $_GET['idproducto'];
+    $query = "UPDATE producto SET estado = 'I' WHERE id = " . $_GET['idproducto'];
     $response = $conexion->query($query)->execute();
     echo $response;
 }

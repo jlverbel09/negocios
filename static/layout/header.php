@@ -37,5 +37,6 @@ if (empty($_SESSION['usuario'])) {
 
 <body>
 	<div class="wrapper">
+		<?php include './layout/permisos.php' ?>
 		<?php include './layout/nav.php' ?>
-		<main class="content">
+		<main class="content pb-1">

@@ -400,33 +400,51 @@ function eliminarProducto(idProducto) {
     var idnegocio = $('#idNegocio').val()
     $('#contenido-seccion').html('')
 
-    $.ajax({
-        type: "GET",
-        url: '../services/productos.php?accion=eliminarProducto&idproducto=' + idProducto,
-        data: {},
-        dataType: "html",
-        success: function (respuesta) {
-            if (respuesta == 1) {
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: 'Producto eliminado correctamente',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
+    Swal.fire({
+        title: "Estás seguro?",
+        text: "No podrás revertir esta acción!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, Eliminar!", 
+        cancelButtonText: "Cancelar"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "GET",
+                url: '../services/productos.php?accion=eliminarProducto&idproducto=' + idProducto,
+                data: {},
+                dataType: "html",
+                success: function (respuesta) {
+                    if (respuesta == 1) {
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: 'Producto eliminado correctamente',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
 
-            } else {
-                Swal.fire({
-                    position: "top-end",
-                    icon: "error",
-                    title: 'Error al eliminar el producto',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-            }
-            listarProductos(idnegocio)
+                    } else {
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "error",
+                            title: 'Error al eliminar el producto',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                    listarProductos(idnegocio)
+                }
+            });
+
+
         }
     });
+
+
+
 }
 
 /* Modal Pedidos */
@@ -599,7 +617,7 @@ function cargarHistorialInversion() {
         }
     });
 }
-function eliminarInversion(idInversion){
+function eliminarInversion(idInversion) {
     $.ajax({
         type: "GET",
         url: '../services/inversion.php?accion=eliminarInversion&idInversion=' + idInversion,
@@ -625,7 +643,7 @@ function eliminarInversion(idInversion){
                 });
             }
             cargarInversion()
-             $('.cerrarModal').click()
+            $('.cerrarModal').click()
 
         }
     });
@@ -707,4 +725,11 @@ function GuardardetallesNegocio() {
 
         }
     });
+}
+
+
+function desplazarVistaPreviaProducto() {
+    $('html, body').animate({
+        scrollTop: $("#vitapreviaproducto").offset().top
+    }, 500);
 }

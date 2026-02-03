@@ -13,4 +13,9 @@
         width: 44%;
         padding: 0 1%;
     }
+
+    #reportesSeccion {
+        justify-content: start !important;
+        padding-bottom: 12px;
+    }
 }

@@ -1,27 +1,11 @@
 </main>
-<footer class="footer">
+<footer class="footer p-0">
     <div class="container-fluid">
         <div class="row text-muted">
-            <div class="col-6 text-start">
+            <div class="col-12 text-center">
                 <p class="mb-0">
                     <a class="text-muted" href="#" target="_blank"><strong>Georking S.A.</strong></a> &copy;
                 </p>
-            </div>
-            <div class="col-6 text-end">
-                <ul class="list-inline">
-                    <li class="list-inline-item">
-                        <a class="text-muted" href="https://adminkit.io/" target="_blank">Soporte</a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="text-muted" href="https://adminkit.io/" target="_blank">Centro de Ayuda</a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="text-muted" href="https://adminkit.io/" target="_blank">Privacidad</a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="text-muted" href="https://adminkit.io/" target="_blank">Terminos y Condiciones</a>
-                    </li>
-                </ul>
             </div>
         </div>
     </div>

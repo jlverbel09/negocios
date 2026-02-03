@@ -22,7 +22,14 @@
                 </div>
                 <div class="col-md-6">
                     <label>Categoria</label>
-                    <input type="text" placeholder="EJ: Tejido, postre, dulce, ropa, zapatos, etc " value="" class="form-control" id="categoriaProducto">
+                    <select name="categoriaProducto" id="categoriaProducto" class="form-control">
+                        <option value="">TODO</option>
+                        <?php $sql = "SELECT * from categoria where id_negocio = " . $_GET['idnegocio'] . " order by nombre asc";
+                        $categorias = $conexion->query($sql)->fetchAll();
+                        foreach ($categorias as $c) {
+                            echo '<option value="' . $c['real'] . '">' . $c['nombre'] . '</option>';
+                        } ?>
+                    </select>
                 </div>
                 <div class="col-md-12">
                     <label>Imagen</label>
