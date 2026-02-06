@@ -11,7 +11,7 @@ $imagen = 'https://tempfile.aiquickdraw.com/m/1748023530_d3cb4955824d447ba637ced
 }
 ?>
 
-<div class="card justify-content-center d-flex align-items-center" >
+<div class="card justify-content-center d-flex align-items-center mt-2" >
     <h5>Vista Previa</h5>
     <img class="card-img-top w-75" src="<?=$imagen?>" alt="Unsplash">
     <div class="card-header">
@@ -19,6 +19,6 @@ $imagen = 'https://tempfile.aiquickdraw.com/m/1748023530_d3cb4955824d447ba637ced
     </div>
     <div class="card-body">
         <p class="card-text"><?=$r['descripcion']?></p>
-        <a href="#" class="btn btn-primary">Seleccionar</a>
+       <!--  <a href="#" class="btn btn-primary">Seleccionar</a> -->
     </div>
 </div>

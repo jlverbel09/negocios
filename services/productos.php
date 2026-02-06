@@ -52,7 +52,9 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'listarProductos') {
                             <td>€&nbsp;<?= number_format($r['promocion'], 2, ',', '.'); ?></td>
                             <td><?= $r['categoria'] ?></td>
                             <!-- <td class="text-center"><?= $r['estado'] ?></td> -->
-                            <td><?= $r['descripcion'] ?></td>
+                            <td>
+                                <p class="m-0 descripcion"><?= $r['descripcion'] ?></p>
+                            </td>
                             <td><?= $r['fecha_reg'] ?></td>
                         </tr>
                     <?php endforeach ?>
@@ -64,7 +66,12 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'listarProductos') {
             Vista Previa
         </div>
     </div>
-
+    <style>
+        .descripcion {
+            overflow-y: scroll;
+            height: 81px;
+        }
+    </style>
 
 
 
