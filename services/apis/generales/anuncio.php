@@ -10,7 +10,7 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'anuncioInicial') {
     $fechaActual = date('Y-m-d');
     $query = "SELECT * from anuncio where id_negocio = " . $_GET['id_negocio'] . " and  fecha_reg = '$fechaActual' and '$horaActual' BETWEEN hora_inicio  and hora_fin order by id desc limit 1";
    
-    $data = $conexion->query($query)->fetchAll();
+    $data = $conexion->query($query)->fetch();
 }
 $jsonProductos = json_encode($data, JSON_PRETTY_PRINT);
 header('Content-Type: application/json');
