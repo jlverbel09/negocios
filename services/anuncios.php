@@ -26,8 +26,8 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'listarAnuncios') {
                         <th>ID</th>
                         <th>Imagen</th>
                         <th>Fecha&nbsp;Registro</th>
-                        <th>Hora Inicio</th>
-                        <th>Hora Fin</th>
+                        <th>Hora&nbsp;Inicio</th>
+                        <th>Hora&nbsp;Fin</th>
 
                     </tr>
                 </thead>
