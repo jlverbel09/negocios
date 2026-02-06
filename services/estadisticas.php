@@ -1,6 +1,8 @@
 <?php
+session_start();
 require_once('../db/conexion.php');
 include './modales.php';
+require_once '../static/layout/permisos.php';
 /* GRAFICO */
 $sql = "
 WITH RECURSIVE numeros AS (
@@ -36,6 +38,18 @@ $mesExacto = [
     202510 => 'OCTUBRE',
     202511 => 'NOVIEMBRE',
     202512 => 'DICIEMBRE',
+     202601 => 'ENERO',
+    202602 => 'FEBRERO',
+    202603 => 'MARZO',
+    202604 => 'ABRIL',
+    202605 => 'MAYO',
+    202606 => 'JUNIO',
+    202607 => 'JULIO',
+    202608 => 'AGOSTO',
+    202609 => 'SEPTIEMBRE',
+    202610 => 'OCTUBRE',
+    202611 => 'NOVIEMBRE',
+    202612 => 'DICIEMBRE',
 ];
 
 $cantidad = '';
@@ -104,6 +118,42 @@ $res3 = $conexion->query($sql)->fetch();
 ?>
 
 <div class="row">
+
+    <?php
+    if (in_array(10, $permisos)) {
+    ?>
+        <div class="col-md-12 col-lg-6 d-flex align-items-center mb-2 row ">
+            <div class="d-flex col-md-12 col-lg-8 align-items-center mb-2 ">
+                <label class="p-0 m-0">VALOR&nbsp;A&nbsp;INVERTIR:&nbsp;€</label>&nbsp;
+                <input type="number" value="" id="valorInvertir" placeholder="0.00" class="form-control bg-dark text-white">
+                <button class="btn btn-info mx-1" onclick="guardarInversion()"><i class="fa fa-arrow-right"></i></i> </button>
+            </div>
+            <div class="d-flex col-md-12 col-lg-4 align-items-center mb-2 ">
+                <label>INVERTIDO: </label>
+                <div class="d-flex align-items-center ">
+                    <b>&nbsp;€&nbsp;<span id="valorInvertido"></span></b>
+                </div>
+
+            </div>
+        </div>
+    <?php
+    }
+    ?>
+    <?php
+    if (in_array(9, $permisos)) {
+    ?>
+        <div class="col-md-3 justify-content-end d-flex align-items-center" id="reportesSeccion">
+            <button class="btn  btn-secondary mx-1 py-1" title="Historial de Inversiones" onclick="cargarHistorialInversion()" data-bs-toggle="modal" data-bs-target="#modalHistorial"><i class="fa fa-clock"></i></button>
+            <button class="btn btn-sm m-1 btn-success"><i class="fa fa-file-excel"></i> Reportes</button>
+            <button class="btn btn-sm m-1 btn-secondary"><i class="fa fa-file-pdf"></i> Reportes</button>
+        </div>
+
+    <?php
+    }
+    ?>
+
+
+
     <div class="col-12">
         <h5 class="card-title mb-3">Estadisticas</h5>
     </div>
