@@ -21,10 +21,14 @@ if (isset($_GET['id'])) {
   
     <!-- MENU -->
     <input type="hidden" value="<?= $id_negocio_global ?>" id="id_negocio_global">
-    <div class="row menumovil p-0 m-0 d-flex justify-content-start">
+    <div class="menu-wrapper position-relative">
+        <button class="menu-arrow menu-arrow-left" id="arrowLeft" onclick="scrollMenuLeft()" style="display:none;">
+            <i class="fa fa-chevron-left"></i>
+        </button>
+        <div class="row menumovil p-0 m-0 d-flex justify-content-start" id="menuScroll">
         <div class="columna">
             <div class="card text-center menu bg-secondary " role="button" onclick="cargarNegocio(<?= $_GET['id'] ?>)" data-bs-toggle="modal" data-bs-target="#modalNegocio">
-                <div class="card-body" style="padding: 11px 0px !important">
+                <div class="card-body perfil" style="">
                     <img class="w-50" src="../static/logos/<?= $_GET['id'] ?>.png" alt="">
 
                     <!-- <h6 class="mt-1 mb-1 ">Negocio</h1> -->
@@ -144,5 +148,9 @@ if (isset($_GET['id'])) {
                 </div>
             </div>
         <?php endif; ?>
+        </div>
+        <button class="menu-arrow menu-arrow-right" id="arrowRight" onclick="scrollMenuRight()">
+            <i class="fa fa-chevron-right"></i>
+        </button>
     </div>
 </div>

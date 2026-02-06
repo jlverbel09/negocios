@@ -18,4 +18,8 @@
         justify-content: start !important;
         padding-bottom: 12px;
     }
+
+    .card-body.perfil {
+        padding: 0.65rem 0rem !important
+    }   
 }

@@ -67,7 +67,7 @@ if (!empty($_SESSION['usuario'])) {
 								<div class="m-sm-3">
 									<form action="./index.php" method="get">
 										<div class="mb-3">
-											<label class="form-label"><b>Correo Electrónico/ Usuario</b></label>
+											<label class="form-label"><b>Usuario</b></label>
 											<input class="form-control form-control-lg" autofocus type="email" name="email" id="user" placeholder="Ingresa tu correo o usuario" />
 										</div>
 										<div class="mb-3">

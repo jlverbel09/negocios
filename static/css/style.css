@@ -54,11 +54,72 @@ div.columna {
     width: 14%;
 }
 
+.columna .card-body {
+      padding: 0.4rem 0rem !important;
+}
 div.menumovil {
-    flex: initial;
+    flex: 1;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 0 !important;
     margin: 0;
-    overflow: initial;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    flex: initial;
+    flex-wrap: initial;
+    margin-bottom: 11px !important;
+}
+
+div.menumovil::-webkit-scrollbar {
+    height: 4px;
+}
+
+div.menumovil::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+div.menumovil::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+div.menumovil::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.menu-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-arrow {
+    background: linear-gradient(135deg, #1130b6 0%, #2c4884 100%);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.menu-arrow:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.menu-arrow:active {
+    transform: scale(0.95);
+}
+
+.menu-arrow i {
+    font-size: 18px;
 }

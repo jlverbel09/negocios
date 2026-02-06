@@ -2,8 +2,48 @@ $(document).ready(function () {
     //redireccion('dashboard')
     //redireccion('usuarios')
     redireccion('negocio', { 'negocio': 'NAZCA', 'id': 7 })
+    
+    // Initialize menu scroll
+    initMenuScroll()
 
 })
+
+/* MENU SCROLL FUNCTIONS */
+function initMenuScroll() {
+    const menuScroll = document.getElementById('menuScroll');
+    const arrowLeft = document.getElementById('arrowLeft');
+    const arrowRight = document.getElementById('arrowRight');
+    
+    if (!menuScroll) return;
+    
+    function checkScroll() {
+        if (menuScroll.scrollLeft > 0) {
+            arrowLeft.style.display = 'flex';
+        } else {
+            arrowLeft.style.display = 'none';
+        }
+        
+        if (menuScroll.scrollLeft < menuScroll.scrollWidth - menuScroll.clientWidth - 10) {
+            arrowRight.style.display = 'flex';
+        } else {
+            arrowRight.style.display = 'none';
+        }
+    }
+    
+    menuScroll.addEventListener('scroll', checkScroll);
+    checkScroll();
+}
+
+function scrollMenuLeft() {
+    const menuScroll = document.getElementById('menuScroll');
+    menuScroll.scrollBy({ left: -200, behavior: 'smooth' });
+}
+
+function scrollMenuRight() {
+    const menuScroll = document.getElementById('menuScroll');
+    menuScroll.scrollBy({ left: 200, behavior: 'smooth' });
+}
+
 /* REDIRECCIONAMIENTO DE RUTAS  */
 function redireccion(ruta, data = {}) {
     $('.sidebar-item').removeClass('active')
@@ -24,13 +64,13 @@ function redireccion(ruta, data = {}) {
             if (ruta == 'negocio') {
                 $('#' + ruta + 'Menu' + data.id).addClass('active')
 
-                //listarProductos(data.id)
+                listarProductos(data.id)
                 //listarClientes(data.id)
                 //listarPedidos(data.id)
                 //listarVentas(data.id)
                 //listarEstadisticas(data.id)
                 //listarApis(data.id)
-                listarAnuncios(data.id)
+                //listarAnuncios(data.id)
             }
         }
     });
