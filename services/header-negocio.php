@@ -47,6 +47,7 @@ if (isset($_GET['id'])) {
                 </div>
             </div>
         <?php endif; ?>
+        
         <?php if (in_array(4, $permisos)): ?>
             <div class="columna">
                 <div class="card text-center menu btnclientes " role="button" onclick="listarClientes(<?= $_GET['id'] ?>)">
@@ -123,6 +124,22 @@ if (isset($_GET['id'])) {
                             </div>
                         </div>
                         <h6 class="mt-1 mb-1">APIs</h1>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+         <?php if (in_array(11, $permisos)): ?>
+            <div class="columna">
+                <div class="card text-center menu btnAnuncios " role="button" onclick="listarAnuncios(<?= $_GET['id'] ?>)">
+                    <div class="card-body">
+                        <div class="row justify-content-center">
+                            <div class="col-auto">
+                                <div class="stat text-primary">
+                                    <i class="fa fa-bullhorn"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <h6 class="mt-1 mb-1">Anuncios</h1>
                     </div>
                 </div>
             </div>

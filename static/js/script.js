@@ -24,12 +24,13 @@ function redireccion(ruta, data = {}) {
             if (ruta == 'negocio') {
                 $('#' + ruta + 'Menu' + data.id).addClass('active')
 
-                listarProductos(data.id)
+                //listarProductos(data.id)
                 //listarClientes(data.id)
                 //listarPedidos(data.id)
                 //listarVentas(data.id)
                 //listarEstadisticas(data.id)
                 //listarApis(data.id)
+                listarAnuncios(data.id)
             }
         }
     });
@@ -225,6 +226,20 @@ function listarProductos(idnegocio) {
         }
     });
 }
+function listarAnuncios(idnegocio) {
+    $('.menu').removeClass('seleccionado')
+    $('.btnAnuncios').addClass('seleccionado')
+    $('#contenido-seccion').html('')
+    $.ajax({
+        type: "GET",
+        url: './../services/anuncios.php?accion=listarAnuncios&idnegocio=' + idnegocio,
+        data: {},
+        dataType: "html",
+        success: function (respuesta) {
+            $('#contenido-seccion').html(respuesta)
+        }
+    });
+}
 
 function visualizar(idproducto) {
     $('#vitapreviaproducto').html('')
@@ -407,7 +422,7 @@ function eliminarProducto(idProducto) {
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Si, Eliminar!", 
+        confirmButtonText: "Si, Eliminar!",
         cancelButtonText: "Cancelar"
     }).then((result) => {
         if (result.isConfirmed) {
@@ -436,6 +451,99 @@ function eliminarProducto(idProducto) {
                         });
                     }
                     listarProductos(idnegocio)
+                }
+            });
+
+
+        }
+    });
+
+
+
+}
+
+
+/* Modal anuncio */
+function guardarAnuncio() {
+    
+    var horaInicio = $('#horaInicioAnuncio').val()
+    var horaFin = $('#horaFinAnuncio').val()
+    var idnegocio = $('#id_negocio_global').val()
+
+    var archivos = $("#imagenAnuncio")[0].files;
+    const formData = new FormData();
+    for (let i = 0; i < archivos.length; i++) {
+        formData.append("imagenAnuncio[]", archivos[i]);
+    }
+    formData.append('horaInicio', horaInicio)
+    formData.append('horaFin', horaFin)
+    formData.append('idnegocio', idnegocio)
+
+
+
+
+    $.ajax({
+        type: "POST",
+        url: '../services/anuncios.php?accion=saveAnuncio&idnegocio=' + idnegocio,
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (respuesta) {
+            mensaje = "Anuncio registrado correctamente";
+            $('.cerrarModal').click()
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: mensaje,
+                showConfirmButton: false,
+                timer: 1500
+            });
+            listarAnuncios(idnegocio)
+
+        }
+    });
+}
+function eliminarAnuncio(idAnuncio) {
+    var idnegocio = $('#id_negocio_global').val()
+
+
+    Swal.fire({
+        title: "Estás seguro?",
+        text: "No podrás revertir esta acción!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, Eliminar!",
+        cancelButtonText: "Cancelar"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $('#contenido-seccion').html('')
+            $.ajax({
+                type: "GET",
+                url: '../services/anuncios.php?accion=eliminarAnuncio&idanuncio=' + idAnuncio,
+                data: {},
+                dataType: "html",
+                success: function (respuesta) {
+                    if (respuesta == 1) {
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: 'Anuncio eliminado correctamente',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+
+                    } else {
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "error",
+                            title: 'Error al eliminar el anuncio',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                    listarAnuncios(idnegocio)
                 }
             });
 
@@ -726,8 +834,6 @@ function GuardardetallesNegocio() {
         }
     });
 }
-
-
 function desplazarVistaPreviaProducto() {
     $('html, body').animate({
         scrollTop: $("#vitapreviaproducto").offset().top
