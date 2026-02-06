@@ -3,6 +3,12 @@ require_once('../../../db/conexion.php');
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
+ $horaActual = date('H:i:s');
+    $fechaActual = date('Y-m-d');
+
+    echo $horaActual;
+    echo $fechaActual;
+    die();
 
 if (isset($_GET['accion']) && $_GET['accion'] == 'anuncioInicial') {
 
