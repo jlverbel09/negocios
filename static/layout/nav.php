@@ -1,7 +1,7 @@
 <nav id="sidebar" class="sidebar js-sidebar">
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand pb-0 text-center text-decoration-none" href="index.php">
-            <img class="logo w-75 rounded p-1" src="./img/icons/icono.png" alt="">
+            <img class="logo w-75 rounded p-1" src="./img/icons/iconosolo.png" alt="">
         </a>
         <br>
         <ul class="sidebar-nav justify-content-start flex-grow-0">
@@ -131,7 +131,7 @@
 
 
 <div class="main">
-    <nav class="navbar navbar-expand navbar-light navbar-bg ">
+    <nav class="navbar navbar-expand navbar-light  ">
         <a class="sidebar-toggle js-sidebar-toggle text-">
             <i class="hamburger align-self-center "></i>
         </a>

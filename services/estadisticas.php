@@ -10,10 +10,10 @@ WITH RECURSIVE numeros AS (
     UNION ALL
     SELECT n + 1
     FROM numeros
-    WHERE n < DATEDIFF(now(), '2025-01-01') -- Rango de días deseado
+    WHERE n < DATEDIFF(now(), '2025-06-01') -- Rango de días deseado
 ),
 fechas AS (
-    SELECT DATE_ADD('2025-01-01', INTERVAL n DAY) AS fecha
+    SELECT DATE_ADD('2025-06-01', INTERVAL n DAY) AS fecha
     FROM numeros
 )
 SELECT
@@ -26,11 +26,6 @@ group by 2 order by 2 desc";
 $res = $conexion->query($sql)->fetchAll();
 
 $mesExacto = [
-    202501 => 'ENERO',
-    202502 => 'FEBRERO',
-    202503 => 'MARZO',
-    202504 => 'ABRIL',
-    202505 => 'MAYO',
     202506 => 'JUNIO',
     202507 => 'JULIO',
     202508 => 'AGOSTO',
@@ -38,7 +33,7 @@ $mesExacto = [
     202510 => 'OCTUBRE',
     202511 => 'NOVIEMBRE',
     202512 => 'DICIEMBRE',
-     202601 => 'ENERO',
+    202601 => 'ENERO',
     202602 => 'FEBRERO',
     202603 => 'MARZO',
     202604 => 'ABRIL',
@@ -131,7 +126,7 @@ $res3 = $conexion->query($sql)->fetch();
             <div class="d-flex col-md-12 col-lg-4 align-items-center mb-2 ">
                 <label>INVERTIDO: </label>
                 <div class="d-flex align-items-center ">
-                    <b>&nbsp;€&nbsp;<span id="valorInvertido"></span></b>
+                    <b>&nbsp;€&nbsp;<span id="valorInvertido">0</span></b>
                 </div>
 
             </div>
@@ -161,7 +156,7 @@ $res3 = $conexion->query($sql)->fetch();
         <div class="card flex-fill w-100">
             <div class="card-header">
 
-                <h5 class="card-title mb-0">Suscripciones de Clientes 2025</h5>
+                <h5 class="card-title mb-0">Suscripciones de Clientes</h5>
             </div>
             <div class="card-body py-3">
                 <div class="chart chart-sm">
@@ -303,7 +298,7 @@ $res3 = $conexion->query($sql)->fetch();
         var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");
         var gradient = ctx.createLinearGradient(0, 0, 0, 225);
         gradient.addColorStop(0, "rgba(215, 227, 244, 1)");
-        gradient.addColorStop(1, "#222e3c");
+        gradient.addColorStop(1, "#02091a");
         // Line chart
         new Chart(document.getElementById("chartjs-dashboard-line"), {
             type: "bar",

@@ -40,3 +40,4 @@ if (empty($_SESSION['usuario'])) {
 		<?php include './layout/permisos.php' ?>
 		<?php include './layout/nav.php' ?>
 		<main class="content pb-1">
+			

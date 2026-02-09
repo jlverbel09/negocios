@@ -7,10 +7,11 @@ require_once('../db/conexion.php');
 require_once '../static/layout/permisos.php';
 if (isset($_GET['id'])) {
     $id_negocio_global = $_GET['id'];
-
+    $tipo_rolGlobal = $_SESSION['usuario']['id_rol'];
     /* HISTORICO */
 } else {
     $id_negocio_global = 0;
+    $tipo_rolGlobal = 0;
 }
 ?>
 <input type="hidden" id="id_negocio_global" value="<?= $_GET['id'] ?>">
@@ -21,6 +22,7 @@ if (isset($_GET['id'])) {
   
     <!-- MENU -->
     <input type="hidden" value="<?= $id_negocio_global ?>" id="id_negocio_global">
+    <input type="hidden" value="<?= $tipo_rolGlobal ?>" id="tipo_rol_global">
     <div class="menu-wrapper position-relative">
         <button class="menu-arrow menu-arrow-left" id="arrowLeft" onclick="scrollMenuLeft()" style="display:none;">
             <i class="fa fa-chevron-left"></i>
@@ -35,6 +37,22 @@ if (isset($_GET['id'])) {
                 </div>
             </div>
         </div>
+        <?php if (in_array(7, $permisos)): ?>
+            <div class="columna">
+                <div class="card text-center menu btnEstadisticas " role="button" onclick="listarEstadisticas(<?= $_GET['id'] ?>)">
+                    <div class="card-body">
+                        <div class="row justify-content-center">
+                            <div class="col-auto">
+                                <div class="stat text-primary">
+                                    <i class="fa fa-chart-line"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <h6 class="mt-1 mb-1">Estadìsticas</h1>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
         <?php if (in_array(3, $permisos)): ?>
             <div class="columna">
                 <div class="card text-center menu btnproductos" role="button" onclick="listarProductos(<?= $_GET['id'] ?>)">
@@ -100,22 +118,7 @@ if (isset($_GET['id'])) {
                 </div>
             </div>
         <?php endif; ?>
-        <?php if (in_array(7, $permisos)): ?>
-            <div class="columna">
-                <div class="card text-center menu btnEstadisticas " role="button" onclick="listarEstadisticas(<?= $_GET['id'] ?>)">
-                    <div class="card-body">
-                        <div class="row justify-content-center">
-                            <div class="col-auto">
-                                <div class="stat text-primary">
-                                    <i class="fa fa-chart-line"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <h6 class="mt-1 mb-1">Estadìsticas</h1>
-                    </div>
-                </div>
-            </div>
-        <?php endif; ?>
+        
         <?php if (in_array(8, $permisos)): ?>
             <div class="columna">
                 <div class="card text-center menu btnApis " role="button" onclick="listarApis(<?= $_GET['id'] ?>)">

@@ -2,7 +2,7 @@ $(document).ready(function () {
     //redireccion('dashboard')
     //redireccion('usuarios')
     redireccion('negocio', { 'negocio': 'NAZCA', 'id': 7 })
-    
+
     // Initialize menu scroll
     initMenuScroll()
 
@@ -13,23 +13,23 @@ function initMenuScroll() {
     const menuScroll = document.getElementById('menuScroll');
     const arrowLeft = document.getElementById('arrowLeft');
     const arrowRight = document.getElementById('arrowRight');
-    
+
     if (!menuScroll) return;
-    
+
     function checkScroll() {
         if (menuScroll.scrollLeft > 0) {
             arrowLeft.style.display = 'flex';
         } else {
             arrowLeft.style.display = 'none';
         }
-        
+
         if (menuScroll.scrollLeft < menuScroll.scrollWidth - menuScroll.clientWidth - 10) {
             arrowRight.style.display = 'flex';
         } else {
             arrowRight.style.display = 'none';
         }
     }
-    
+
     menuScroll.addEventListener('scroll', checkScroll);
     checkScroll();
 }
@@ -46,6 +46,7 @@ function scrollMenuRight() {
 
 /* REDIRECCIONAMIENTO DE RUTAS  */
 function redireccion(ruta, data = {}) {
+
     $('.sidebar-item').removeClass('active')
     setTimeout(() => {
         $('#' + ruta + 'Menu').addClass('active')
@@ -56,21 +57,32 @@ function redireccion(ruta, data = {}) {
         url: '../services/' + ruta + '.php',
         data: data,
         dataType: "html",
-        success: function (respuesta) {
+        success: async function (respuesta) {
+
             $('#contenedor').html(respuesta)
             if (ruta == 'usuarios') {
                 listUsuarios()
             }
             if (ruta == 'negocio') {
                 $('#' + ruta + 'Menu' + data.id).addClass('active')
+                var Rol = $('#tipo_rol_global').val()
 
-                listarProductos(data.id)
+
+                if (Rol == 1) {
+                    listarEstadisticas(data.id)
+                } else if (Rol == 2) {
+                    listarProductos(data.id)
+                }
+                //listarProductos(data.id)
                 //listarClientes(data.id)
                 //listarPedidos(data.id)
                 //listarVentas(data.id)
-                //listarEstadisticas(data.id)
                 //listarApis(data.id)
                 //listarAnuncios(data.id)
+
+                setTimeout(() => {
+                    cargarInversion()
+                }, 1000);
             }
         }
     });
@@ -505,7 +517,7 @@ function eliminarProducto(idProducto) {
 
 /* Modal anuncio */
 function guardarAnuncio() {
-    
+
     var horaInicio = $('#horaInicioAnuncio').val()
     var horaFin = $('#horaFinAnuncio').val()
     var idnegocio = $('#id_negocio_global').val()
@@ -747,7 +759,6 @@ function cargarInversion() {
         data: {},
         dataType: "html",
         success: function (respuesta) {
-
             $('#valorInvertido').html(respuesta)
         }
     });
