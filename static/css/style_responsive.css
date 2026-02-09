@@ -22,4 +22,7 @@
     .card-body.perfil {
         padding: 0.65rem 0rem !important
     }   
+    .slider{
+        display: none;
+    }
 }

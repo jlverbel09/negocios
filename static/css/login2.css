@@ -1,0 +1,104 @@
+ body {
+     background-color: #020617;
+     color: #e2e8f0;
+ }
+
+ .bg-mesh {
+     background-color: #020617;
+     background-image:
+         radial-gradient(at 0% 0%, hsla(243, 75%, 59%, 0.15) 0, transparent 50%),
+         radial-gradient(at 100% 100%, hsla(243, 75%, 59%, 0.1) 0, transparent 50%);
+ }
+
+ .input-focus-effect:focus {
+     border-color: #6366f1;
+     box-shadow: 0 0 0 1px #6366f1;
+     outline: none;
+ }
+
+ .side-image {
+     background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80');
+     background-size: cover;
+     background-position: center;
+ }
+
+ .slider {
+     width: 100%;
+     height: auto;
+     margin: auto;
+     overflow: hidden;
+     /* Oculta lo que sale del recuadro */
+     background: white;
+     padding: 20px 0;
+     position: relative;
+     display: flex;
+     position: absolute;
+     width: 48%;
+     z-index: 27;
+     top: 0;
+     right: 0;
+     height: 7rem;
+     margin: 14px;
+     background-color: transparent;
+ }
+
+ /* Efecto de degradado a los lados (opcional pero profesional) */
+ .slider::before,
+ .slider::after {
+     content: "";
+     height: 100%;
+     position: absolute;
+     width: 150px;
+     z-index: 2;
+     pointer-events: none;
+ }
+
+ .slider::before {
+     left: 0;
+     background: linear-gradient(to right, white 0%, transparent 100%);
+ }
+
+ .slider::after {
+     right: 0;
+     background: linear-gradient(to left, white 0%, transparent 100%);
+ }
+
+ .slide-track {
+     display: flex;
+     width: calc(250px * 10);
+     /* (Ancho de cada slide) * (total de slides incluyendo duplicados) */
+     animation: scroll 30s linear infinite;
+ }
+
+ .slide {
+     width: 130px;
+     /* Ajusta según el tamaño de tus logos */
+     display: flex;
+     align-items: center;
+     padding: 15px;
+ }
+
+ .slide img {
+     width: 100%;
+     filter: grayscale(100%);
+     /* Opcional: logos en gris */
+     transition: filter 0.5s;
+ }
+
+ .slide img:hover {
+     filter: grayscale(0%);
+     /* Vuelve a color al pasar el mouse */
+ }
+
+ /* La animación mágica */
+ @keyframes scroll {
+     0% {
+         transform: translateX(0);
+     }
+
+     100% {
+         transform: translateX(calc(-250px * 5));
+     }
+
+     /* Se mueve hasta la mitad (los originales) */
+ }
