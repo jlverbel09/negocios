@@ -2,6 +2,7 @@
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand pb-0 text-center text-decoration-none" href="index.php">
             <img class="logo w-75 rounded p-1" src="./img/icons/iconosolo.png" alt="">
+            <h3>GEORKING BUSINESS</h3>
         </a>
         <br>
         <ul class="sidebar-nav justify-content-start flex-grow-0">

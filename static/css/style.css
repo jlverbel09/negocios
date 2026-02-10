@@ -45,11 +45,12 @@ div.progress {
     font-size: 16px;
 }
 
-.btn-info{
+.btn-info {
     background-color: #2a2a61 !important;
     border: none !important;
     color: white !important;
 }
+
 img.logo {
     width: 35px;
     border-radius: 100px;
@@ -60,8 +61,9 @@ div.columna {
 }
 
 .columna .card-body {
-      padding: 0.4rem 0rem !important;
+    padding: 0.4rem 0rem !important;
 }
+
 div.menumovil {
     flex: 1;
     align-items: center;
@@ -129,15 +131,27 @@ div.menumovil::-webkit-scrollbar-thumb:hover {
     font-size: 18px;
 }
 
-.sidebar-link, a.sidebar-link{
-        margin: 2% 4%;
+.sidebar-link,
+a.sidebar-link {
+    margin: 2% 4%;
     border-radius: 10px;
     background-color: #1e293b;
 }
-.navbar{
+
+.navbar {
     background-color: #0f172a !important;
 }
 
 div.menumovil::-webkit-scrollbar {
     display: none;
+}
+
+.sidebar-brand img {
+    width: 5rem !important;
+    margin-bottom: 10px;
+}
+
+.sidebar-brand h3 {
+    font-size: 14px !important;
+    margin: 0;
 }
