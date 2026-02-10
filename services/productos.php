@@ -33,7 +33,7 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'listarProductos') {
                 </thead>
                 <tbody class="">
                     <?php if (count($response)  == 0): ?>
-                        <td colspan="9">No hay ningun producto</td>
+                        <td colspan="9">No hay ningúnproducto</td>
                     <?php endif ?>
                     <?php foreach ($response as $r): ?>
                         <tr>

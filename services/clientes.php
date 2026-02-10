@@ -6,7 +6,7 @@ $response = $conexion->query($query)->fetchAll();
 <?php include './modales.php'; ?>
 <div class="row">
     <div class="col-12">
-        <button class="btn btn-info " onclick="soloClientes()" data-bs-toggle="modal" data-bs-target="#modalUsuario"><i class="fa fa-plus"></i> Nuevo Cliente</button>
+        <button class="btn btn-info mb-2" onclick="soloClientes()" data-bs-toggle="modal" data-bs-target="#modalUsuario"><i class="fa fa-plus"></i> Nuevo Cliente</button>
     </div>
     <div class="col-12 d-flex ">
         <div class="card flex-fill scrollproductos">
@@ -27,7 +27,7 @@ $response = $conexion->query($query)->fetchAll();
                 </thead>
                 <tbody>
                     <?php if (count($response)  == 0): ?>
-                        <td colspan="7">No hay ningun Cliente</td>
+                        <td colspan="7">No hay ningúnCliente</td>
                     <?php endif ?>
                     <?php foreach ($response as $r): ?>
                         <tr>
