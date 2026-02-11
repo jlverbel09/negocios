@@ -169,42 +169,61 @@ div.menumovil::-webkit-scrollbar {
     top: 12px;
     position: relative;
 }
-.mesa{
+
+.mesa {
     width: 165px !important;
+    justify-content: center;
+    display: inline-grid;
+    box-shadow: 0 0 3px 0 white;
 }
+
 div.estados {
     display: flex;
     gap: 10px;
     justify-content: center;
     margin-top: 10px;
 }
+
 div.color {
     width: 20px;
     height: 20px;
     border-radius: 50%;
     background-color: #2a2a61;
 }
-div.estado{
+
+div.estado {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 div.estado.libre {
     background-color: #28a745;
 }
+
 div.estado.ocupada {
     background-color: #dc3545;
 }
+
 div.estado.reservada {
     background-color: #ffc107;
 }
+
 .texto-estado {
     font-size: 12px;
     text-align: center;
     margin-top: 5px;
 }
+
 .mesa:hover {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     transform: scale(1.05);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.mesa img {
+    padding: 12px;
+    width: 116px;
+    display: flex;
+    align-items: center;
 }

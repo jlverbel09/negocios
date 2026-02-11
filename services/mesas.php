@@ -42,7 +42,7 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'listarMesas') {
         <?php
         foreach ($mesas as $mesa) {
         ?>
-            <div class="mesa border rounded m-1 " title="<?= $mesa['estado'] ?>" style="background-color: <?= $mesa['color'] . '40' ?>;" width="100%" role="button" onclick="cargarMesa(<?= $mesa['id_mesa'] ?>)">
+            <div class="mesa  rounded m-1 " title="<?= $mesa['estado'] ?>" style="background-color: <?= $mesa['color'] . '40' ?>;" width="100%" role="button" onclick="cargarMesa(<?= $mesa['id_mesa'] ?>)">
                 <div class="numeroMesa">
                     <h2 class="text-center mt-2"><strong><?= $mesa['alias'] ?></strong></h2>
                 </div>
