@@ -27,7 +27,7 @@ $response = $conexion->query($query)->fetchAll();
                 </thead>
                 <tbody>
                     <?php if (count($response)  == 0): ?>
-                        <td colspan="7">No hay ningúnCliente</td>
+                        <td colspan="7">No hay ningún Cliente</td>
                     <?php endif ?>
                     <?php foreach ($response as $r): ?>
                         <tr>

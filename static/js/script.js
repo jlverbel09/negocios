@@ -73,7 +73,8 @@ function redireccion(ruta, data = {}) {
                 } else if (Rol == 2) {
                     listarProductos(data.id)
                 }
-                //listarProductos(data.id)
+               //listarMesas(data.id)
+               //listarProductos(data.id)
                 //listarClientes(data.id)
                 //listarPedidos(data.id)
                 //listarVentas(data.id)
@@ -260,6 +261,80 @@ function listSelectEstadoPedido(idNegocio = 0, idEstadoProducto = 0) {
         success: function (respuesta) {
             $('.listSelectEstadoPedido').html(respuesta)
         }
+    });
+}
+
+
+
+/* MESAS */
+function abrirModalMesa() {
+    $('#idMesa').val('')
+    $('#aliasMesa').val('')
+    $('#estadoMesa').val('1')
+    $('#modalMesa').modal('show')
+    cargarMesa()
+}
+
+function listarMesas(idnegocio) {
+    $('.menu').removeClass('seleccionado')
+    $('.btnMesas').addClass('seleccionado')
+    $('#contenido-seccion').html('')
+    $.ajax({
+        type: "GET",
+        url: '../services/mesas.php?accion=listarMesas&idnegocio=' + idnegocio,
+        data: {},
+        dataType: "html",
+        success: function (respuesta) {
+
+            $('#contenido-seccion').html(respuesta)
+        }
+    });
+}
+
+function cargarMesa(idMesa = '') {
+    $idNegocio = $('#id_negocio_global').val()
+    $.ajax({
+        type: "GET",
+        url: '../services/mesas.php?accion=cargarMesa&idmesa=' + idMesa + '&idnegocio=' + $idNegocio,
+        data: {},
+        dataType: "html",
+        success: function (respuesta) {
+            $('#cargarmodalMesa').html(respuesta)
+            $('#modalMesa').modal('show')
+
+        }
+    });
+}
+
+function guardarMesa() {
+    var idMesa = $('#idMesa').val()
+    var aliasMesa = $('#aliasMesa').val()
+    var estadoMesa = $('#estadoMesa').val()
+    var idNegocio = $('#id_negocio_global').val()
+    $.ajax({
+        type: "POST",
+        url: '../services/mesas.php?accion=guardarMesa&idnegocio=' + idNegocio,
+        data: { idMesa: idMesa, aliasMesa: aliasMesa, estadoMesa: estadoMesa },
+        dataType: "html",
+        success: function (respuesta) {
+            if (idMesa != '') {
+                mensaje = "Mesa modificada correctamente";
+            } else {
+                mensaje = "Mesa registrada correctamente";
+            }
+            $('.cerrarModal').click()
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: mensaje,
+                showConfirmButton: false,
+                timer: 1500
+            });
+            $('#modalMesa').modal('hide')
+            listarMesas(idNegocio)
+        }
+
+
     });
 }
 

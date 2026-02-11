@@ -272,7 +272,14 @@
                         </div>
                     </div>
                 </li> -->
+                <li class="nav-item">
+                    <a class="nav-link pe-2" href="#" id="btnFullscreen" role="button">
+                        <i id="icon-maximize" class="bi bi-arrows-fullscreen text-white"></i>
+                        <i id="icon-minimize" class="bi bi-fullscreen-exit text-white" style="display: none;"></i>
+                    </a>
+                </li>
                 <li class="nav-item dropdown">
+
                     <a class="nav-icon dropdown-toggle d-inline-block d-sm-none " href="#" data-bs-toggle="dropdown">
                         <i class="align-middle " data-feather="settings"></i>
                     </a>

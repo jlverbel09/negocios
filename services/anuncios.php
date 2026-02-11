@@ -33,7 +33,7 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'listarAnuncios') {
                 </thead>
                 <tbody class="">
                     <?php if (count($response)  == 0): ?>
-                        <td colspan="9">No hay ningúnanuncio</td>
+                        <td colspan="9">No hay ningún anuncio</td>
                     <?php endif ?>
                     <?php foreach ($response as $r): ?>
                         <tr>
