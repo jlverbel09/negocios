@@ -81,6 +81,12 @@
         .text-glow {
             text-shadow: 0 0 30px rgba(91, 77, 255, 0.3);
         }
+
+        @media  screen and (max-width: 400px){
+            div.cabecera .w-20{
+                width: 10% !important;
+            }
+        }
     </style>
     <link rel="shortcut icon" href="../static/img/icons/iconosolo.png" type="image/x-icon">
 </head>
@@ -91,11 +97,11 @@
 
     <!-- Nav -->
     <nav
-        class="w-full z-50 py-6 px-6 md:px-12 flex justify-between items-center border-b border-gray-800/50 backdrop-blur-sm fixed top-0 bg-[#0b0f19]/80">
+        class="w-full justify-center flex-wrap z-50 py-6 px-6 md:px-12 flex md:justify-between items-center border-b border-gray-800/50 backdrop-blur-sm fixed top-0 bg-[#0b0f19]/80">
         <div class="flex items-center gap-3">
             <!-- Icon imitating the logo in image -->
             <div
-                class="w-20 h-10 rounded-lg bg-gradient-to-br from-[#5b4dff] to-purple-800 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+                class="w-10 lg:w-20 h-10 rounded-lg bg-gradient-to-br from-[#5b4dff] to-purple-800 flex items-center justify-center shadow-lg shadow-indigo-500/20">
 
                 <img src="../static/img/icons/iconosolo.png" alt="">
             </div>
@@ -109,7 +115,7 @@
             <a href="#precios" class="hover:text-white transition">Planes</a>
             <a href="#contacto" class="hover:text-white transition">Contacto</a>
         </div>
-        <div>
+        <div class="flex flex-wrap">
             <a href="#contacto"
                 class="btn-primary px-6 py-2 rounded-md text-white font-medium text-sm shadow-lg shadow-indigo-500/20 mx-1">
                 Empezar Ahora
@@ -159,7 +165,7 @@
             <!-- Client Logos Strip (Similar to top right of image) -->
             <div class="pt-8 border-t border-gray-800/50">
                 <p class="text-xs text-gray-500 mb-4 uppercase tracking-widest">Negocios que confían en nosotros</p>
-                <div class="flex gap-6 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                <div class="flex flex-wrap gap-6 opacity-50 grayscale hover:grayscale-0 transition-all duration-500 wrap">
                     <!-- Placeholders for logos -->
                     <img class="w-20" src="../static/logos/7.png" alt="">
                     <img class="w-20" src="../static/logos/2.png" alt="">
