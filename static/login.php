@@ -130,7 +130,7 @@ if (!empty($_SESSION['usuario'])) {
             <?php for ($i = 1; $i <= 3; $i++) { ?>
                 <div class="slide"><a target="_blank" href="#"><img src="./logos/1.png" alt="Logo 1"></a></div>
                 <div class="slide"><a target="_blank" href="#"><img src="./logos/2.png" alt="Logo 2"></a></div>
-                <div class="slide"><a target="_blank" href="#"><img src="./logos/3.png" alt="Logo 3"></a></div>
+                <!-- <div class="slide"><a target="_blank" href="#"><img src="./logos/3.png" alt="Logo 3"></a></div> -->
                 <div class="slide"><a target="_blank" href="#"><img src="./logos/4.png" alt="Logo 4"></a></div>
                 <div class="slide"><a target="_blank" href="https://nazcarestaurante.com"><img src="./logos/7.png" alt="Logo 7"></a></div>
                 <div class="slide"><a target="_blank" href="#"><img src="./logos/8.png" alt="Logo 8"></a></div>
